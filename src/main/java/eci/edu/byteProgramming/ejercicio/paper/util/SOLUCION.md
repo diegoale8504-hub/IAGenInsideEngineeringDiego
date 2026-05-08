@@ -1,5 +1,6 @@
 # Solucion Problema #2: Tienda Virtual
 13 minutos
+Codex
 ## Prompt usado
 
 Revisa el Problema #2 del README y corrige el codigo incompleto en `util` para implementar un sistema de pagos con multiples metodos, creacion de familias de objetos relacionados, notificacion automatica a inventario/facturacion/notificaciones, pruebas y documentacion de errores.

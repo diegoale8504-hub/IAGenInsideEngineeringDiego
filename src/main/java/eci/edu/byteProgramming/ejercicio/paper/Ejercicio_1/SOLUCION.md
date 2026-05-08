@@ -1,5 +1,7 @@
 # Solucion Problema #1: El Videoclub de Don Mario
+Codex
 12 minutos
+
 ## Prompt usado
 
 EN el readme de este repositorio tengo dos problemas vamos a hacer uno primero:Problema #1: "El Videoclub de Don Mario"                                                          
