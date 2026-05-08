@@ -5,15 +5,16 @@ import java.util.Map;
 
 public class Inventory {
     private static final String LAPTOP001 = "LAPTOP001";
-    private Map<String, Product> products;
-    private Map<String, Integer> stock;
-    
+    private final Map<String, Product> products;
+    private final Map<String, Integer> stock;
+    private String lastDiscountedProductId;
+
     public Inventory() {
         this.products = new HashMap<>();
         this.stock = new HashMap<>();
         initializeInventory();
     }
-    
+
     private void initializeInventory() {
         products.put(LAPTOP001, new Product(LAPTOP001, "Gaming Laptop", 1200.00, "Electronics"));
         products.put("PHONE001", new Product("PHONE001", "Smartphone", 800.00, "Electronics"));
@@ -23,27 +24,31 @@ public class Inventory {
         stock.put("PHONE001", 10);
         stock.put("BOOK001", 20);
     }
-    
+
     public boolean discountProduct(String productId, int quantity) {
         if (stock.containsKey(productId) && stock.get(productId) >= quantity) {
             int currentStock = stock.get(productId);
             stock.put(productId, currentStock - quantity);
-            System.out.println("✅ Inventory: Discounted " + quantity + " units of " + 
-                             products.get(productId).getName());
+            lastDiscountedProductId = productId;
+            System.out.println("Inventory: Discounted " + quantity + " units of "
+                    + products.get(productId).getName());
             System.out.println("   Remaining stock: " + stock.get(productId));
             return true;
-        } else {
-            System.out.println("Inventory: Insufficient stock for " + productId);
-            return false;
         }
+
+        System.out.println("Inventory: Insufficient stock for " + productId);
+        return false;
     }
-    
+
     public Product getProduct(String productId) {
         return products.get(productId);
     }
-    
+
     public int getStock(String productId) {
         return stock.getOrDefault(productId, 0);
     }
-}
 
+    public String getLastDiscountedProductId() {
+        return lastDiscountedProductId;
+    }
+}

@@ -4,33 +4,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ECIPayment {
-    private List<PaymentObserver> observers;
-    
+    private final List<PaymentObserver> observers;
+
     public ECIPayment() {
         this.observers = new ArrayList<>();
     }
-    
+
     public void addObserver(PaymentObserver observer) {
         observers.add(observer);
     }
-    
+
     public void removeObserver(PaymentObserver observer) {
         observers.remove(observer);
     }
-    
-    public boolean processPayment(PaymentFactory factory, double amount, String customerId, 
-                                String description, String customerName, String customerEmail, String productId) {
-        
-        System.out.println("🚀 ECI Payments: Starting payment process...");
+
+    public boolean processPayment(PaymentFactory factory, double amount, String customerId,
+                                  String description, String customerName,
+                                  String customerEmail, String productId) {
+
+        System.out.println("ECI Payments: Starting payment process...");
         System.out.println("Customer: " + customerName + " (" + customerEmail + ")");
         System.out.println("Amount: $" + amount);
         System.out.println("Description: " + description);
         System.out.println("----------------------------------------");
-        
+
         PaymentMethod payment = factory.createPaymentMethod(amount, customerId, description);
-        
-        boolean success = payment.processPayment();
- 
+        ValidatePayment validator = factory.createValidator(payment);
+
+        boolean success = payment.processPayment(validator);
+
         if (success) {
             System.out.println("Payment processed successfully!");
             notifyPaymentSuccess(payment, customerName, customerEmail, productId);
@@ -38,17 +40,17 @@ public class ECIPayment {
             System.out.println("Payment failed!");
             notifyPaymentFailed(payment, customerEmail);
         }
-        
+
         return success;
     }
-    
-    private void notifyPaymentSuccess(PaymentMethod payment, String customerName, 
-                                    String customerEmail, String productId) {
+
+    private void notifyPaymentSuccess(PaymentMethod payment, String customerName,
+                                      String customerEmail, String productId) {
         for (PaymentObserver observer : observers) {
             observer.onPaymentSuccess(payment, customerName, customerEmail, productId);
         }
     }
-    
+
     private void notifyPaymentFailed(PaymentMethod payment, String customerEmail) {
         for (PaymentObserver observer : observers) {
             observer.onPaymentFailed(payment, customerEmail);
