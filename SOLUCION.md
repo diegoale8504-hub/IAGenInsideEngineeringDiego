@@ -1,9 +1,49 @@
 # Solucion Problema #1: El Videoclub de Don Mario
-
+12 minutos
 ## Prompt usado
 
-Resuelve el Problema #1 del README: crear un sistema de alquiler para peliculas fisicas y digitales, con disponibilidad, membresia basica o premium, recibo por consola, patrones de diseno, principios SOLID y pruebas de aceptacion.
+EN el readme de este repositorio tengo dos problemas vamos a hacer uno primero:Problema #1: "El Videoclub de Don Mario"                                                          
+Contexto limitado: solo enunciado                                                                                                                                                
+Sin documentación adicional: aparte de su conocimiento previo                                                                                                                    
+Desafío: formular buenos prompts sin información visual o técnica previa Este es el enfoque del problema 1Problema #1: El Videoclub de Don                                       
+Duración: Máximo 15 minutos                                                                                                                                                      
+Don Mario acaba de abrir un videoclub moderno donde los clientes pueden alquilar peliculas fisicas o digitales. El problema es que su sistema anterior era un caos: todos los    
+precios se calculaban igual sin importar el tipo de pelicula o membresia del cliente, y no habia forma de saber que peliculas estaban disponibles en tiempo real.
 
+Tu Mision                                                                                                                                                                        
+Ayuda a Don Mario creando un sistema de alquiler que permita:
+
+Registrar peliculas (fisicas o digitales) con su disponibilidad.                                                                                                                 
+Que el cliente elija X peliculas para alquilar.                                                                                                                                  
+Calcular el precio total segun su tipo de membresia:                                                                                                                             
+Basica: precio normal.                                                                                                                                                           
+Premium: 20% de descuento.                                                                                                                                                       
+Mostrar al finalizar un recibo con las peliculas, precio por unidad y total.                                                                                                     
+Peliculas Disponibles                                                                                                                                                            
+[Fisica] Interestellar - $8.000 - Disponible                                                                                                                                     
+[Fisica] El Padrino - $7.000 - No disponible                                                                                                                                     
+[Digital] Inception - $5.000 - Disponible                                                                                                                                        
+[Digital] Matrix - $6.000 - Disponible                                                                                                                                           
+Caso de Ejemplo                                                                                                                                                                  
+Membresia del cliente: Premium                                                                                                                                                   
+Seleccione peliculas (numeros separados por coma): 1,3
+
+--- RECIBO DE ALQUILER ---                                                                                                                                                       
+Cliente: Premium                                                                                                                                                                 
+Peliculas:                                                                                                                                                                       
+- Interestellar (Fisica) - $8.000                                                                                                                                               
+- Inception (Digital) - $5.000                                                                                                                                                  
+Subtotal: $13.000                                                                                                                                                                
+Descuento (20%): $2.600                                                                                                                                                          
+Total a pagar: $10.400
+   --------------------------                                                                                                                                                       
+¡Disfrute su pelicula!                                                                                                                                                           
+Objetivos del Ejercicio                                                                                                                                                          
+Identificar cual o cuales patrones de diseno utilizar.                                                                                                                           
+Explicar que principios de SOLID se aplican.                                                                                                                                     
+Aplicar polimorfismo y encapsulamiento.                                                                                                                                          
+Colocar evidencia de la ejecucion del ejercicio (ejecucion por consola; no es necesario hacer front). lo debes de crear en la carpeta                                            
+src/main/java/eci.edu.bytePrograming.ejercicio.paper.ejercicio1 debes de seguir muy bien todo el contexto de como es el problema y de como deben de ser los outputs
 ## Como se resolvio
 
 La solucion quedo en `src/main/java/eci/edu/byteProgramming/ejercicio/paper/Ejercicio_1`.
